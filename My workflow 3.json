@@ -1,0 +1,2644 @@
+{
+  "name": "My workflow 3",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "acf44738-0099-47d9-874b-ebc205ac3db4",
+              "name": "success",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "621666ef-6a94-428a-8759-1e57e275a55f",
+              "name": "current_state",
+              "value": "ST002",
+              "type": "string"
+            },
+            {
+              "id": "8fe2b36a-84ad-4d1f-9536-babdb367c8ce",
+              "name": "=language",
+              "value": "={{ ($json.chatInput || \"\").trim().toLowerCase() === \"0\" || ($json.chatInput || \"\").trim().toLowerCase() === \"english\" ? \"en\" : \"mr\" }}",
+              "type": "string"
+            },
+            {
+              "id": "7b39e857-1d0d-4bdf-a097-3b45b3176c45",
+              "name": "screen",
+              "value": "main_menu",
+              "type": "string"
+            },
+            {
+              "id": "8b64c757-870c-4474-844e-f628f79e24ba",
+              "name": "=title",
+              "value": "={{ $json.language === \"mr\" ? \"मुख्य मेनू\" : \"Main Menu\" }}",
+              "type": "string"
+            },
+            {
+              "id": "f4fe8cb1-a496-42e6-bba1-6d05a90dc513",
+              "name": "=subtitle",
+              "value": "={{\n$json.language === \"mr\"\n? \"कृपया सेवा निवडा\"\n: \"Please select a service\"\n}}",
+              "type": "string"
+            },
+            {
+              "id": "392aa196-60ac-40e2-972c-4676c13a703f",
+              "name": "inputType",
+              "value": "buttons",
+              "type": "string"
+            },
+            {
+              "id": "70f31b17-bd32-4a27-8cf1-7c166ac0138c",
+              "name": "=buttons",
+              "value": "={{\n$json.language === \"mr\"\n?\n[\n  {\n    \"id\":\"building_permission\",\n    \"label\":\"🏢 इमारत परवानगी\"\n  },\n  {\n    \"id\":\"zone_certificate\",\n    \"label\":\"📍 झोन प्रमाणपत्र\"\n  },\n  {\n    \"id\":\"part_plan\",\n    \"label\":\"🗺️ भाग नकाशा\"\n  }\n]\n:\n[\n  {\n    \"id\":\"building_permission\",\n    \"label\":\"🏢 Building Permission\"\n  },\n  {\n    \"id\":\"zone_certificate\",\n    \"label\":\"📍 Zone Certificate\"\n  },\n  {\n    \"id\":\"part_plan\",\n    \"label\":\"🗺️ Part Plan\"\n  }\n]\n}}",
+              "type": "array"
+            },
+            {
+              "id": "9894a3d2-2e58-475c-bf4b-fa022f4cbc91",
+              "name": "new_state",
+              "value": "ST002",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        176
+      ],
+      "id": "987c0593-a6ad-4a5a-9d4c-8c54605e9231",
+      "name": "ST002 - Language Selected"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bf712d9d-fe38-4afb-ad84-bcac96f68dd3",
+              "name": "success",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "6fbd1c09-56a9-4c57-bdf8-a15b0f3853e4",
+              "name": "current_state",
+              "value": "ST001",
+              "type": "string"
+            },
+            {
+              "id": "85b71f31-aa9b-4e1b-abf7-06c8657dd023",
+              "name": "screen",
+              "value": "Welcome",
+              "type": "string"
+            },
+            {
+              "id": "292e40cc-ca5e-431f-ad97-f9ce24e1ee3d",
+              "name": "title",
+              "value": "Welcome to CSMRDA Digital Assistant",
+              "type": "string"
+            },
+            {
+              "id": "b059e2ff-cc58-4dfc-88d7-407aa55541f6",
+              "name": "subtitle",
+              "value": "Please choose your preferred language",
+              "type": "string"
+            },
+            {
+              "id": "7a7657e7-d07c-492c-b342-f2ca5af24a79",
+              "name": "inputType",
+              "value": "buttons",
+              "type": "string"
+            },
+            {
+              "id": "b1d3c3fd-5b11-447a-9b94-6a12ba674ba8",
+              "name": "=buttons",
+              "value": "[   {     \"id\": \"en\",     \"label\": \"English\"   },   {     \"id\": \"mr\",     \"label\": \"Marathi\"   } ]",
+              "type": "array"
+            },
+            {
+              "id": "af3cd71a-d996-41b9-be7e-4acb2fc85505",
+              "name": "new_state",
+              "value": "ST001",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "83287683-aa8b-4ca9-a647-4cfff4dd0fce",
+      "name": "ST001 - Welcome Screen"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{$json}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        1600,
+        1216
+      ],
+      "id": "8073697c-1e26-4b37-b2c2-2a5db707feac",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2cd991c7-f46e-4b24-9585-aa05c228ebef",
+              "name": "success",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "07f305de-70e3-46a3-ad3c-f1b95d6de6ee",
+              "name": "current_state",
+              "value": "ST101",
+              "type": "string"
+            },
+            {
+              "id": "9185a824-83f5-449a-81e2-ef9be7457a18",
+              "name": "=language",
+              "value": "={{$json.language}}",
+              "type": "string"
+            },
+            {
+              "id": "5783516d-da00-4e20-92a1-fb8e737fff57",
+              "name": "screen",
+              "value": "building_menu",
+              "type": "string"
+            },
+            {
+              "id": "cbae779e-86d7-4bfd-8815-bc6c69ed8b36",
+              "name": "=title",
+              "value": "={{\n$json.language === \"mr\"\n? \"🏢 इमारत परवानगी\"\n: \"🏢 Building Permission\"\n}}",
+              "type": "string"
+            },
+            {
+              "id": "c1226566-8729-4ae4-897a-089fa7da102b",
+              "name": "=subtitle",
+              "value": "={{\n$json.language === \"mr\"\n? \"कृपया एक पर्याय निवडा:\"\n: \"Please choose an option:\"\n}}",
+              "type": "string"
+            },
+            {
+              "id": "f7c8a5e0-23c5-4d07-9c34-ee0bda1cddc0",
+              "name": "inputType",
+              "value": "buttons",
+              "type": "string"
+            },
+            {
+              "id": "ac18d759-6a2f-46c1-8e5e-1a1724bdfcb5",
+              "name": "=buttons",
+              "value": "={{\n$json.language === \"mr\"\n?\n[\n  {\n    \"id\":\"layout_documents\",\n    \"label\":\"📄 लेआउट कागदपत्रे\"\n  },\n  {\n    \"id\":\"building_documents\",\n    \"label\":\"🏗️ इमारत परवानगी कागदपत्रे\"\n  },\n  {\n    \"id\":\"occupancy_documents\",\n    \"label\":\"🏠 भोगवटा प्रमाणपत्र\"\n  },\n  {\n    \"id\":\"open_bpms\",\n    \"label\":\"🌐 BPMS पोर्टल उघडा\"\n  },\n  {\n    \"id\":\"back\",\n    \"label\":\"⬅ मागे\"\n  }\n]\n:\n[\n  {\n    \"id\":\"layout_documents\",\n    \"label\":\"📄 Layout Documents\"\n  },\n  {\n    \"id\":\"building_documents\",\n    \"label\":\"🏗️ Building Documents\"\n  },\n  {\n    \"id\":\"occupancy_documents\",\n    \"label\":\"🏠 Occupancy Certificate\"\n  },\n  {\n    \"id\":\"open_bpms\",\n    \"label\":\"🌐 Open BPMS Portal\"\n  },\n  {\n    \"id\":\"back\",\n    \"label\":\"⬅ Back\"\n  }\n]\n}}",
+              "type": "array"
+            },
+            {
+              "id": "24328dce-29bd-4848-84ae-ac25b36a0622",
+              "name": "new_state",
+              "value": "ST101",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        368
+      ],
+      "id": "142757d7-1dab-45c3-a2db-bf608e356ca4",
+      "name": "ST101 - Building Menu"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "851580ad-05f2-43d5-a784-2e69c4e9e596",
+              "name": "success",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "f268e5e3-c391-40d8-96c2-a746b90373db",
+              "name": "current_state",
+              "value": "ST102",
+              "type": "string"
+            },
+            {
+              "id": "80644d0f-eb13-4d9b-9454-e4f26a25dd37",
+              "name": "=language",
+              "value": "=$json.language",
+              "type": "string"
+            },
+            {
+              "id": "fd653a54-c063-4350-93b7-a77afaadc6a1",
+              "name": "screen",
+              "value": "layout_documents",
+              "type": "string"
+            },
+            {
+              "id": "a76b6414-7611-4f22-ae7d-932c14935a40",
+              "name": "=title",
+              "value": "={{ $json.language==\"mr\"  ?  \"📑 लेआउट कागदपत्रे\"  :  \"📑 Layout Documents\"  }}",
+              "type": "string"
+            },
+            {
+              "id": "a9585d6b-1393-49d8-b5c8-5800dc09a80e",
+              "name": "=subtitle",
+              "value": "={{ $json.language==\"mr\"  ?  \"आवश्यक कागदपत्रे\"  :  \"Required Documents\"  }}",
+              "type": "string"
+            },
+            {
+              "id": "b587ee7f-5a81-47aa-ab4c-b43d1b212831",
+              "name": "=documentList",
+              "value": "={{ $json.language==\"mr\"  ?  [ \"मालकी हक्काचा पुरावा\", \"साईट प्लॅन\", \"सर्व्हे प्लॅन\", \"आर्किटेक्ट प्रमाणपत्र\", \"प्रतिज्ञापत्र\" ]  :  [ \"Ownership Document\", \"Site Plan\", \"Survey Plan\", \"Architect Certificate\", \"Affidavit\" ]  }}",
+              "type": "array"
+            },
+            {
+              "id": "04a6c197-0d90-4bcc-8c5e-2b0fafdf431d",
+              "name": "=buttons",
+              "value": "={{ $json.language == \"mr\"  ?  [   {     \"id\": \"download_pdf\",     \"label\": \"📄 PDF डाउनलोड करा\",     \"action\": \"download_layout_pdf\"   },   {     \"id\": \"bpms\",     \"label\": \"🌐 BPMS पोर्टल उघडा\",     \"action\": \"open_bpms\"   },   {     \"id\": \"back\",     \"label\": \"⬅ इमारत परवानगी मेनू\",     \"action\": \"building_permission\"   } ]  :  [   {     \"id\": \"download_pdf\",     \"label\": \"📄 Download PDF\",     \"action\": \"download_layout_pdf\"   },   {     \"id\": \"bpms\",     \"label\": \"🌐 Open BPMS Portal\",     \"action\": \"open_bpms\"   },   {     \"id\": \"back\",     \"label\": \"⬅ Back to Building Permission\",     \"action\": \"building_permission\"   } ]  }}",
+              "type": "array"
+            },
+            {
+              "id": "1ce603b8-95f0-4f43-a9d8-566e056a0ded",
+              "name": "new_state",
+              "value": "ST102",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        528
+      ],
+      "id": "cfc85582-ab95-4cf0-9889-6619b9e326cf",
+      "name": "ST102 - Layout Documents"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "77809318-94cc-4e71-8c5f-e4741c467461",
+              "name": "current_state",
+              "value": "ST103",
+              "type": "string"
+            },
+            {
+              "id": "4b92cccf-3489-4652-83de-dae48b7772ff",
+              "name": "screen",
+              "value": "building_documents",
+              "type": "string"
+            },
+            {
+              "id": "f5aaa3f9-0ca8-4f98-90ac-cba4dc712b85",
+              "name": "=language",
+              "value": "=$json.language",
+              "type": "string"
+            },
+            {
+              "id": "536fe77a-0895-4b7a-a070-1d2ef62640a0",
+              "name": "=title",
+              "value": "={{ $json.language==\"mr\" ? \"📑 इमारत परवानगी कागदपत्रे\" : \"📑 Building Permission Documents\" }}",
+              "type": "string"
+            },
+            {
+              "id": "ca193049-376e-43da-9b17-4dfd6a883535",
+              "name": "=subtitle",
+              "value": "={{ $json.language==\"mr\" ? \"आवश्यक कागदपत्रांची यादी\" : \"Required Documents List\" }}",
+              "type": "string"
+            },
+            {
+              "id": "f00f24a9-3c83-4867-81b6-5406ec893dac",
+              "name": "=documentList",
+              "value": "={{\n$json.language==\"mr\"\n\n?\n\n[\n\"बांधकाम आराखडा\",\n\"आर्किटेक्ट प्रमाणपत्र\",\n\"स्ट्रक्चरल स्थिरता प्रमाणपत्र\",\n\"मालकी हक्काचा पुरावा\",\n\"कर भरल्याचा दाखला\"\n]\n\n:\n\n[\n\"Building Plan\",\n\"Architect Certificate\",\n\"Structural Stability Certificate\",\n\"Ownership Document\",\n\"Property Tax Receipt\"\n]\n\n}}",
+              "type": "array"
+            },
+            {
+              "id": "2c5a44c5-be02-4d3c-9e7d-279dc5bc1755",
+              "name": "=buttons",
+              "value": "={{\n$json.language==\"mr\"\n\n?\n\n[\n{\n\"id\":\"download_pdf\",\n\"label\":\"📄 PDF डाउनलोड करा\",\n\"action\":\"download_building_pdf\"\n},\n{\n\"id\":\"bpms\",\n\"label\":\"🌐 BPMS पोर्टल\",\n\"action\":\"open_bpms\"\n},\n{\n\"id\":\"back\",\n\"label\":\"⬅ परत\",\n\"action\":\"building_permission\"\n}\n]\n\n:\n\n[\n{\n\"id\":\"download_pdf\",\n\"label\":\"📄 Download PDF\",\n\"action\":\"download_building_pdf\"\n},\n{\n\"id\":\"bpms\",\n\"label\":\"🌐 Open BPMS\",\n\"action\":\"open_bpms\"\n},\n{\n\"id\":\"back\",\n\"label\":\"⬅ Back\",\n\"action\":\"building_permission\"\n}\n]\n\n}}",
+              "type": "array"
+            },
+            {
+              "id": "7eaa7f4e-11d6-4ea8-9e68-6ab71cbe86b0",
+              "name": "new_state",
+              "value": "ST103",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        720
+      ],
+      "id": "f13cc450-c259-40a0-9277-ebfd8a029d05",
+      "name": "ST103 - Building Permission Documents"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f01b5074-48df-42af-beba-d530ab8992ea",
+              "name": "current_state",
+              "value": "ST104",
+              "type": "string"
+            },
+            {
+              "id": "eea12ea0-0996-49d6-b463-9409e15f5bcd",
+              "name": "screen",
+              "value": "Occupancy ",
+              "type": "string"
+            },
+            {
+              "id": "8afdd052-2184-434b-a93c-2aa6ce188ae6",
+              "name": "=language",
+              "value": "=$json.language",
+              "type": "string"
+            },
+            {
+              "id": "2c351e15-8b2d-4270-9ad5-f6946fb3a874",
+              "name": "=title",
+              "value": "={{ $json.language==\"mr\" ? \"🏠 भोगवटा प्रमाणपत्र\" : \"🏠 Occupancy Certificate\" }}",
+              "type": "string"
+            },
+            {
+              "id": "2a9a5fd7-2966-4fda-b0af-1504f92ba2f4",
+              "name": "=subtitle",
+              "value": "={{ $json.language==\"mr\" ? \"आवश्यक कागदपत्रांची यादी\" : \"Required Documents List\" }}",
+              "type": "string"
+            },
+            {
+              "id": "c95a7c54-a422-45a7-93c4-f860e161f073",
+              "name": "=documentList",
+              "value": "={{\n$json.language==\"mr\"\n\n?\n\n[\n\"पूर्णता प्रमाणपत्र\",\n\"आर्किटेक्ट प्रमाणपत्र\",\n\"स्ट्रक्चरल स्थिरता प्रमाणपत्र\",\n\"अग्निशमन विभागाचे प्रमाणपत्र\",\n\"पाणी व ड्रेनेज जोडणी प्रमाणपत्र\"\n]\n\n:\n\n[\n\"Completion Certificate\",\n\"Architect Certificate\",\n\"Structural Stability Certificate\",\n\"Fire Department NOC\",\n\"Water & Drainage Connection Certificate\"\n]\n\n}}",
+              "type": "array"
+            },
+            {
+              "id": "91f8f062-1496-4c24-a056-9c5008f0e351",
+              "name": "=buttons",
+              "value": "={{\n$json.language==\"mr\"\n\n?\n\n[\n{\n\"id\":\"download_pdf\",\n\"label\":\"📄 PDF डाउनलोड करा\",\n\"action\":\"download_occupancy_pdf\"\n},\n{\n\"id\":\"bpms\",\n\"label\":\"🌐 BPMS पोर्टल\",\n\"action\":\"open_bpms\"\n},\n{\n\"id\":\"back\",\n\"label\":\"⬅ परत\",\n\"action\":\"building_permission\"\n}\n]\n\n:\n\n[\n{\n\"id\":\"download_pdf\",\n\"label\":\"📄 Download PDF\",\n\"action\":\"download_occupancy_pdf\"\n},\n{\n\"id\":\"bpms\",\n\"label\":\"🌐 Open BPMS\",\n\"action\":\"open_bpms\"\n},\n{\n\"id\":\"back\",\n\"label\":\"⬅ Back\",\n\"action\":\"building_permission\"\n}\n]\n\n}}",
+              "type": "array"
+            },
+            {
+              "id": "41d4018f-a0da-401a-9d7f-97426305fbcd",
+              "name": "new_state",
+              "value": "ST104",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        912
+      ],
+      "id": "abae89a6-5edc-4eeb-95e4-37c4f6638aa8",
+      "name": "ST104 - Occupancy Certificate"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d46a4bdd-be08-4e1b-814b-b050509902e0",
+              "name": "current_state",
+              "value": "ST105",
+              "type": "string"
+            },
+            {
+              "id": "8ede5461-c995-4b32-a1d9-cb51e2826de9",
+              "name": "screen",
+              "value": "bpms",
+              "type": "string"
+            },
+            {
+              "id": "6cd9dae8-422d-4d18-b12f-d03b51497d92",
+              "name": "=language",
+              "value": "=$json.language",
+              "type": "string"
+            },
+            {
+              "id": "ef0e5381-4932-4076-b081-ea785e75554e",
+              "name": "=title",
+              "value": "={{ $json.language==\"mr\" ? \"🌐 बिल्डिंग प्लॅन मॅनेजमेंट सिस्टम\" : \"🌐 Building Plan Management System\" }}",
+              "type": "string"
+            },
+            {
+              "id": "9a4f6682-c400-4aa3-a21f-da8e869b6cd1",
+              "name": "subtitle",
+              "value": "={{ $json.language==\"mr\" ? \"BPMS पोर्टलद्वारे खालील सेवा उपलब्ध आहेत.\" : \"The following services are available through the BPMS portal.\" }}",
+              "type": "string"
+            },
+            {
+              "id": "19b00a03-845a-4a5f-b5cc-d936a85cfc09",
+              "name": "=description",
+              "value": "={{ $json.language==\"mr\" ? \"BPMS पोर्टलवर जाऊन आपण अर्ज करू शकता, कागदपत्रे सादर करू शकता आणि अर्जाची स्थिती पाहू शकता.\" : \"You can apply for building permission, submit documents and track your application through the BPMS portal.\" }}",
+              "type": "string"
+            },
+            {
+              "id": "fb9cb2a8-4e16-4c07-9d84-24ea610740fc",
+              "name": "portalUrl",
+              "value": "https://bpms.csmrda.in/",
+              "type": "string"
+            },
+            {
+              "id": "9bfb4d8d-cfd5-41dc-a3b8-dd6e45a81735",
+              "name": "=buttons",
+              "value": "={{\n$json.language==\"mr\"\n\n?\n\n[\n{\n\"id\":\"open\",\n\"label\":\"🌐 BPMS पोर्टल उघडा\",\n\"action\":\"launch_bpms\"\n},\n{\n\"id\":\"back\",\n\"label\":\"⬅ इमारत परवानगी मेनू\",\n\"action\":\"building_permission\"\n}\n]\n\n:\n\n[\n{\n\"id\":\"open\",\n\"label\":\"🌐 Open BPMS Portal\",\n\"action\":\"launch_bpms\"\n},\n{\n\"id\":\"back\",\n\"label\":\"⬅ Back to Building Permission\",\n\"action\":\"building_permission\"\n}\n]\n\n}}",
+              "type": "array"
+            },
+            {
+              "id": "7a9cd042-868b-4fa6-8043-da5339b7a5f1",
+              "name": "new_state",
+              "value": "ST105",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        1104
+      ],
+      "id": "2652f729-3c8b-48a5-bc03-71eb2a93221e",
+      "name": "ST105 - Open BPMS Portal"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -1568,
+        1504
+      ],
+      "id": "ad88c563-b808-46dc-928c-3156c575ee94",
+      "name": "When chat message received",
+      "webhookId": "ebf94f58-222f-4ad6-95b5-ed52e1ee135f"
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "dataTableId": {
+          "__rl": true,
+          "value": "CiH2OPUoWI97L0Zg",
+          "mode": "list",
+          "cachedResultName": "chat_sessions",
+          "cachedResultUrl": "/projects/y1PXRFG7JHdwumvP/datatables/CiH2OPUoWI97L0Zg"
+        },
+        "matchType": "allConditions",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "session_id",
+              "keyValue": "={{$json.sessionId}}"
+            }
+          ]
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "session_id": "={{$json.sessionId}}",
+            "current_state": "={{$json.nextScreen}}",
+            "language": "={{$json.language}}",
+            "previous_state": "={{$json.previous_state}}",
+            "last_action": "={{$json.chatInput}}",
+            "just_entered": "={{$json.just_entered}}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "session_id",
+              "displayName": "session_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "current_state",
+              "displayName": "current_state",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "language",
+              "displayName": "language",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "previous_state",
+              "displayName": "previous_state",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "last_action",
+              "displayName": "last_action",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "just_entered",
+              "displayName": "just_entered",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        -480,
+        1472
+      ],
+      "id": "ebbf8589-7204-4650-b20d-c53bdb2add54",
+      "name": "save_sessions"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "value": "ZR5O1UuWdpci3Lh6",
+          "mode": "list",
+          "cachedResultName": "chat_sessions",
+          "cachedResultUrl": "/projects/u5WCamR61w4UGZyl/datatables/ZR5O1UuWdpci3Lh6"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "=session_id",
+              "keyValue": "={{$json.sessionId}}"
+            }
+          ]
+        },
+        "limit": 1
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        -1248,
+        1600
+      ],
+      "id": "30d57459-2327-4e79-a46d-4f6c5ba1d6b0",
+      "name": "get_sessions",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -912,
+        1520
+      ],
+      "id": "7e929517-e7e8-4ba1-95e6-acb860ba94ac",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "jsCode": "const input = (\n  $json.chatInput ||\n  $json.message ||\n  $json.text ||\n  \"\"\n).trim().toLowerCase();\n\nconst state = $json.current_state || \"\";\nlet nextScreen = \"\";\nlet just_entered = false;\n\n/* =========================\n   WELCOME\n========================= */\n\nif ([\"hi\", \"hello\", \"start\", \"\"].includes(input)) {\n  nextScreen = \"ST001\";\n}\n\n/* =========================\n   LANGUAGE\n========================= */\n\nelse if (state === \"ST001\") {\n\n  if (\n    [\"0\", \"english\", \"en\"].includes(input)\n  ) {\n    nextScreen = \"ST002\";\n    $json.language = \"en\";\n  }\n\n  else if (\n    [\"1\", \"marathi\", \"mr\"].includes(input)\n  ) {\n    nextScreen = \"ST002\";\n    $json.language = \"mr\";\n  }\n}\n\n/* =========================\n   MAIN MENU\n========================= */\n\nelse if (state === \"ST002\") {\n\n  switch (input) {\n\n    case \"0\":\n    case \"building_permission\":\n      nextScreen = \"ST101\";\n      just_entered = true;\n      break;\n\n    case \"1\":\n    case \"zone_certificate\":\n      nextScreen = \"ST201\";\n      just_entered = true;\n      break;\n\n    case \"2\":\n    case \"part_plan\":\n      nextScreen = \"ST301\";\n      just_entered = true;\n      break;\n\n    case \"3\":\n    case \"gunthewari\":\n      nextScreen = \"ST401\";\n      just_entered = true;\n      break;\n\n    case \"4\":\n    case \"ai_assistant\":\n      nextScreen = \"ST501\";\n      just_entered = true;\n      break;\n  }\n}\n\n/* =========================\n   BUILDING MENU\n========================= */\n\nelse if (state === \"ST101\") {\n\n  switch (input) {\n\n    case \"0\":\n    case \"layout_documents\":\n      nextScreen = \"ST102\";\n      break;\n\n    case \"1\":\n    case \"building_documents\":\n      nextScreen = \"ST103\";\n      break;\n\n    case \"2\":\n    case \"occupancy_documents\":\n      nextScreen = \"ST104\";\n      break;\n\n    case \"3\":\n    case \"open_bpms\":\n      nextScreen = \"ST105\";\n      break;\n\n    case \"4\":\n    case \"back\":\n      nextScreen = \"ST002\";\n      break;\n  }\n}\n\n/* =========================\n   LAYOUT DOCS\n========================= */\n\nelse if (state === \"ST102\") {\n\n  switch (input) {\n\n    case \"0\":\n    case \"download_pdf\":\n      nextScreen = \"DOWNLOAD_LAYOUT\";\n      break;\n\n    case \"1\":\n    case \"bpms\":\n      nextScreen = \"ST105\";\n      break;\n\n    case \"2\":\n    case \"back\":\n      nextScreen = \"ST101\";\n      break;\n  }\n}\n\n/* =========================\n   BUILDING DOCS\n========================= */\n\nelse if (state === \"ST103\") {\n\n  switch (input) {\n\n    case \"0\":\n    case \"download_pdf\":\n      nextScreen = \"DOWNLOAD_BUILDING_PERMISSION\";\n      break;\n\n    case \"1\":\n    case \"bpms\":\n      nextScreen = \"ST105\";\n      break;\n\n    case \"2\":\n    case \"back\":\n      nextScreen = \"ST101\";\n      break;\n  }\n}\n\n/* =========================\n   OCCUPANCY\n========================= */\n\nelse if (state === \"ST104\") {\n\n  switch (input) {\n\n    case \"0\":\n    case \"download_pdf\":\n      nextScreen = \"DOWNLOAD_OCCUPANCY\";\n      break;\n\n    case \"1\":\n    case \"bpms\":\n      nextScreen = \"ST105\";\n      break;\n\n    case \"2\":\n    case \"back\":\n      nextScreen = \"ST101\";\n      break;\n  }\n}\n\n/* =========================\n   BPMS\n========================= */\n\nelse if (state === \"ST105\") {\n\n  switch (input) {\n\n    case \"0\":\n    case \"open\":\n    case \"open_portal\":\n      nextScreen = \"OPEN_BPMS\";\n      break;\n\n    case \"1\":\n    case \"back\":\n      nextScreen = \"ST101\";\n      break;\n  }\n}\n\n/* =========================\n   ZONE CERTIFICATE\n========================= */\n\nelse if (state === \"ST201\") {\n\n  switch (input) {\n\n    case \"0\":\n    case \"apply_here\":\n      nextScreen = \"ST202\";\n      break;\n\n    case \"1\":\n    case \"aaple_sarkar\":\n      nextScreen = \"ST203\";\n      break;\n\n    case \"2\":\n    case \"back\":\n      nextScreen = \"ST002\";\n      break;\n  }\n}\n\nelse if (state === \"ST202\") {\n\n  switch (input) {\n\n    case \"0\":\n    case \"register\":\n      nextScreen = \"ST206\";\n      break;\n\n    case \"1\":\n    case \"login\":\n      nextScreen = \"ST207\";\n      break;\n\n    case \"2\":\n    case \"track\":\n      nextScreen = \"ST208\";\n      break;\n\n    case \"3\":\n    case \"back\":\n      nextScreen = \"ST201\";\n      break;\n  }\n}\n\nelse if (state === \"ST203\") {\n\n  switch (input) {\n\n    case \"0\":\n    case \"open\":\n    case \"open_portal\":\n      nextScreen = \"OPEN_AAPLE_SARKAR\";\n      break;\n\n    case \"1\":\n    case \"back\":\n      nextScreen = \"ST201\";\n      break;\n  }\n}\n\nelse if (state === \"ST206\") {\n\n  switch (input) {\n\n    case \"0\":\n    case \"open_registration\":\n      nextScreen = \"REGISTER_PORTAL\";\n      break;\n\n    case \"1\":\n    case \"back\":\n      nextScreen = \"ST202\";\n      break;\n  }\n}\n\nelse if (state === \"ST207\") {\n\n  switch (input) {\n\n    case \"0\":\n    case \"open_login\":\n      nextScreen = \"LOGIN_PORTAL\";\n      break;\n\n    case \"1\":\n    case \"back\":\n      nextScreen = \"ST202\";\n      break;\n  }\n}\n\nelse if (state === \"ST208\") {\n\n  switch (input) {\n\n    case \"0\":\n    case \"track_application\":\n      nextScreen = \"TRACK_APPLICATION\";\n      break;\n\n    case \"1\":\n    case \"back\":\n      nextScreen = \"ST202\";\n      break;\n  }\n}\n\n/* =========================\n   PART PLAN\n========================= */\n\nelse if (state === \"ST301\") {\n\n  switch (input) {\n\n    case \"0\":\n    case \"apply_here\":\n      nextScreen = \"ST302\";\n      break;\n\n    case \"1\":\n    case \"aaple_sarkar\":\n      nextScreen = \"ST303\";\n      break;\n\n    case \"2\":\n    case \"back\":\n      nextScreen = \"ST002\";\n      break;\n  }\n}\n\nelse if (state === \"ST302\") {\n\n  switch (input) {\n\n    case \"0\":\n    case \"register\":\n      nextScreen = \"ST306\";\n      break;\n\n    case \"1\":\n    case \"login\":\n      nextScreen = \"ST307\";\n      break;\n\n    case \"2\":\n    case \"track\":\n      nextScreen = \"ST308\";\n      break;\n\n    case \"3\":\n    case \"back\":\n      nextScreen = \"ST301\";\n      break;\n  }\n}\n\nelse if (state === \"ST303\") {\n\n  switch (input) {\n\n    case \"0\":\n    case \"open\":\n    case \"open_portal\":\n      nextScreen = \"OPEN_AAPLE_SARKAR_PART\";\n      break;\n\n    case \"1\":\n    case \"back\":\n      nextScreen = \"ST301\";\n      break;\n  }\n}\n\nelse if (state === \"ST306\") {\n\n  switch (input) {\n\n    case \"0\":\n    case \"open_registration\":\n      nextScreen = \"REGISTER_PART_PLAN\";\n      break;\n\n    case \"1\":\n    case \"back\":\n      nextScreen = \"ST302\";\n      break;\n  }\n}\n\nelse if (state === \"ST307\") {\n\n  switch (input) {\n\n    case \"0\":\n    case \"open_login\":\n      nextScreen = \"LOGIN_PART_PLAN\";\n      break;\n\n    case \"1\":\n    case \"back\":\n      nextScreen = \"ST302\";\n      break;\n  }\n}\n\nelse if (state === \"ST308\") {\n\n  switch (input) {\n\n    case \"0\":\n    case \"track_application\":\n      nextScreen = \"TRACK_PART_PLAN\";\n      break;\n\n    case \"1\":\n    case \"back\":\n      nextScreen = \"ST302\";\n      break;\n  }\n}\n\n/* =========================\n   GUNTHEWARI\n========================= */\n\nelse if (state === \"ST401\") {\n\n  switch (input) {\n\n    case \"0\":\n    case \"open_portal\":\n      nextScreen = \"ST402\";\n      break;\n\n    case \"1\":\n    case \"back\":\n      nextScreen = \"ST002\";\n      break;\n  }\n}\n\nelse if (state === \"ST402\") {\n\n  switch (input) {\n\n    case \"0\":\n    case \"open_gunthewari\":\n      nextScreen = \"OPEN_GUNTHEVARI_PORTAL\";\n      break;\n\n    case \"1\":\n    case \"back\":\n      nextScreen = \"ST401\";\n      break;\n  }\n}\n\n/* =========================\n   AI ASSISTANT\n========================= */\n\nelse if (state === \"ST501\") {\n\n  if (\n    [\"back\", \"menu\", \"exit\"].includes(input)\n  ) {\n    nextScreen = \"ST002\";\n  } else {\n    nextScreen = \"AI_CHAT\";\n  }\n}\n\n/* =========================\n   FALLBACK\n========================= */\n\nif (!nextScreen) {\n  nextScreen = state || \"ST001\";\n}\n\nreturn [{\n  json: {\n    ...$json,\n    nextScreen,\n    just_entered\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -672,
+        1520
+      ],
+      "id": "af0e4e98-6e25-47e9-91b7-0df4b1f8d76a",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{$json.nextScreen}}",
+                    "rightValue": "ST001",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "8464352e-1233-48a4-a360-d412ca793129"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ST001"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "af2d0b26-0bf3-4028-82b2-5f03d1c10aa1",
+                    "leftValue": "={{$json.nextScreen}}",
+                    "rightValue": "ST002",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ST002"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "be7c7d5f-848f-4b23-8cdd-e8e4bc1b320d",
+                    "leftValue": "={{$json.nextScreen}}",
+                    "rightValue": "ST101",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ST101"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "c7eb8c51-a667-48c0-a313-81846129791a",
+                    "leftValue": "={{$json.nextScreen}}",
+                    "rightValue": "ST102",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ST102"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "efcdda58-5580-4dc8-af89-7ce1928eeedd",
+                    "leftValue": "={{$json.nextScreen}}",
+                    "rightValue": "ST103",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ST103"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "0c2aabdf-8a22-4d19-8ec8-64fd8780d0d3",
+                    "leftValue": "={{$json.nextScreen}}",
+                    "rightValue": "ST104",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ST104"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "7177c3a3-4c28-4330-9503-6ef31805cae6",
+                    "leftValue": "={{$json.nextScreen}}",
+                    "rightValue": "ST105",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ST105"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "aa0bf138-0aab-41e0-a661-52a6e4adae3b",
+                    "leftValue": "={{$json.nextScreen}}",
+                    "rightValue": "ST201",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ST201"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "eb9a412f-c878-412f-8c8d-32c5f94958db",
+                    "leftValue": "={{$json.nextScreen}}",
+                    "rightValue": "ST202",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ST202"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "569cbf6c-f35f-42d2-a9bc-504b8057d6e1",
+                    "leftValue": "={{$json.nextScreen}}",
+                    "rightValue": "ST203",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ST203"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "eb0f818d-b7ad-4c35-bb61-096d52dd2525",
+                    "leftValue": "={{$json.nextScreen}}",
+                    "rightValue": "ST206",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ST206"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "828cc4bc-b7e1-498d-a050-e8bb0b71c21d",
+                    "leftValue": "={{$json.nextScreen}}",
+                    "rightValue": "ST207",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ST207"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "2243a6af-4fb7-4e49-998d-db521131804a",
+                    "leftValue": "={{$json.nextScreen}}",
+                    "rightValue": "ST208",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ST208"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "617a7a9d-46bb-494a-b48f-dbf19f765405",
+                    "leftValue": "={{$json.nextScreen}}",
+                    "rightValue": "ST301",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ST301"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "c3d4eede-aca1-468b-a315-dbcf8ddcdbdb",
+                    "leftValue": "={{$json.nextScreen}}",
+                    "rightValue": "ST302",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ST302"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "d59930ea-b954-48d5-aff0-ae6ca9be7cc2",
+                    "leftValue": "={{$json.nextScreen}}",
+                    "rightValue": "ST303",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ST303"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "c9d0cc76-159e-41c7-b0e9-cf5f8c0f8c4f",
+                    "leftValue": "={{$json.nextScreen}}",
+                    "rightValue": "ST306",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ST306"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "ab82ee05-2bab-41f6-87f6-5923c109585b",
+                    "leftValue": "={{$json.nextScreen}}",
+                    "rightValue": "ST307",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ST307"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "e4d7f3e9-bc69-40c9-a575-f79170e44d30",
+                    "leftValue": "={{$json.nextScreen}}",
+                    "rightValue": "ST308",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ST308"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "8f6c4e9e-ca06-4ba8-84a8-43ebff674cd3",
+                    "leftValue": "={{$json.nextScreen}}",
+                    "rightValue": "ST401",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ST401"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "68f89882-b69b-430d-a5bc-12a842c7a74f",
+                    "leftValue": "={{$json.nextScreen}}",
+                    "rightValue": "ST402",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ST402"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "id": "3fe05b67-bbba-4767-b180-87b2ebc32a82",
+                    "leftValue": "={{$json.nextScreen}}",
+                    "rightValue": "ST501",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "ST501"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        -304,
+        1376
+      ],
+      "id": "fdef2377-4ffc-4067-84c4-ce86edef0085",
+      "name": "state router"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2cd991c7-f46e-4b24-9585-aa05c228ebef",
+              "name": "success",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "07f305de-70e3-46a3-ad3c-f1b95d6de6ee",
+              "name": "current_state",
+              "value": "ST201",
+              "type": "string"
+            },
+            {
+              "id": "9185a824-83f5-449a-81e2-ef9be7457a18",
+              "name": "=language",
+              "value": "={{$json.language}}",
+              "type": "string"
+            },
+            {
+              "id": "5783516d-da00-4e20-92a1-fb8e737fff57",
+              "name": "screen",
+              "value": "zone_certificate",
+              "type": "string"
+            },
+            {
+              "id": "cbae779e-86d7-4bfd-8815-bc6c69ed8b36",
+              "name": "=title",
+              "value": "={{ $json.language==\"mr\" ? \"🗺️ झोन प्रमाणपत्र\" : \"🗺️ Zone Certificate\" }}",
+              "type": "string"
+            },
+            {
+              "id": "c1226566-8729-4ae4-897a-089fa7da102b",
+              "name": "=subtitle",
+              "value": "={{ $json.language==\"mr\"\n? \"कृपया एक पर्याय निवडा:\"\n: \"Please choose an option:\"\n}}",
+              "type": "string"
+            },
+            {
+              "id": "f7c8a5e0-23c5-4d07-9c34-ee0bda1cddc0",
+              "name": "inputType",
+              "value": "buttons",
+              "type": "string"
+            },
+            {
+              "id": "ac18d759-6a2f-46c1-8e5e-1a1724bdfcb5",
+              "name": "=buttons",
+              "value": "={{\n$json.language==\"mr\"\n?\n[\n  {\"id\":\"0\",\"label\":\"📝 अर्ज करा\"},\n  {\"id\":\"1\",\"label\":\"🌐 आपले सरकार पोर्टल\"},\n  {\"id\":\"2\",\"label\":\"⬅ मागे\"}\n]\n:\n[\n  {\"id\":\"0\",\"label\":\"📝 Apply Here\"},\n  {\"id\":\"1\",\"label\":\"🌐 Aaple Sarkar Portal\"},\n  {\"id\":\"2\",\"label\":\"⬅ Back\"}\n]\n}}",
+              "type": "array"
+            },
+            {
+              "id": "24328dce-29bd-4848-84ae-ac25b36a0622",
+              "name": "new_state",
+              "value": "ST201",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        1360
+      ],
+      "id": "3dbafac4-72e2-4b3d-88ec-8ed1ff74841f",
+      "name": "ST201 - Zone Certificate"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "77809318-94cc-4e71-8c5f-e4741c467461",
+              "name": "current_state",
+              "value": "ST202",
+              "type": "string"
+            },
+            {
+              "id": "4b92cccf-3489-4652-83de-dae48b7772ff",
+              "name": "screen",
+              "value": "zone_apply",
+              "type": "string"
+            },
+            {
+              "id": "f5aaa3f9-0ca8-4f98-90ac-cba4dc712b85",
+              "name": "=language",
+              "value": "=$json.language",
+              "type": "string"
+            },
+            {
+              "id": "536fe77a-0895-4b7a-a070-1d2ef62640a0",
+              "name": "=title",
+              "value": "={{ $json.language==\"mr\" ? \"📝 झोन प्रमाणपत्रासाठी अर्ज\" : \"📝 Apply for Zone Certificate\" }}",
+              "type": "string"
+            },
+            {
+              "id": "ca193049-376e-43da-9b17-4dfd6a883535",
+              "name": "=subtitle",
+              "value": "={{ $json.language==\"mr\"\n? \"कृपया एक पर्याय निवडा:\"\n: \"Please choose an option:\"\n}}",
+              "type": "string"
+            },
+            {
+              "id": "2c5a44c5-be02-4d3c-9e7d-279dc5bc1755",
+              "name": "=buttons",
+              "value": "={{\n$json.language==\"mr\"\n?\n[\n  {\"id\":\"0\",\"label\":\"🆕 नोंदणी करा\"},\n  {\"id\":\"1\",\"label\":\"🔐 लॉगिन\"},\n  {\"id\":\"2\",\"label\":\"📍 अर्जाची स्थिती\"},\n  {\"id\":\"3\",\"label\":\"⬅ मागे\"}\n]\n:\n[\n  {\"id\":\"0\",\"label\":\"🆕 Register\"},\n  {\"id\":\"1\",\"label\":\"🔐 Login\"},\n  {\"id\":\"2\",\"label\":\"📍 Track Application\"},\n  {\"id\":\"3\",\"label\":\"⬅ Back\"}\n]\n}}",
+              "type": "array"
+            },
+            {
+              "id": "7eaa7f4e-11d6-4ea8-9e68-6ab71cbe86b0",
+              "name": "new_state",
+              "value": "ST202",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        1536
+      ],
+      "id": "89373568-d142-463c-b879-dfb4c0ae058a",
+      "name": "ST202 - Apply Here"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "77809318-94cc-4e71-8c5f-e4741c467461",
+              "name": "current_state",
+              "value": "ST203",
+              "type": "string"
+            },
+            {
+              "id": "4b92cccf-3489-4652-83de-dae48b7772ff",
+              "name": "screen",
+              "value": "zone_documents",
+              "type": "string"
+            },
+            {
+              "id": "f5aaa3f9-0ca8-4f98-90ac-cba4dc712b85",
+              "name": "=language",
+              "value": "=$json.language",
+              "type": "string"
+            },
+            {
+              "id": "536fe77a-0895-4b7a-a070-1d2ef62640a0",
+              "name": "=title",
+              "value": "={{ $json.language==\"mr\" ? \"🌐 आपले सरकार पोर्टल\" : \"🌐 Aaple Sarkar Portal\" }}",
+              "type": "string"
+            },
+            {
+              "id": "ca193049-376e-43da-9b17-4dfd6a883535",
+              "name": "=subtitle",
+              "value": "={{ $json.language==\"mr\"\n? \"झोन प्रमाणपत्रासाठी अर्ज करण्यासाठी खालील पोर्टल उघडा.\"\n: \"Open the Aaple Sarkar Portal to apply for a Zone Certificate.\"\n}}",
+              "type": "string"
+            },
+            {
+              "id": "2c5a44c5-be02-4d3c-9e7d-279dc5bc1755",
+              "name": "=buttons",
+              "value": "={{\n$json.language==\"mr\"\n?\n[\n  {\"id\":\"0\",\"label\":\"🌐 पोर्टल उघडा\"},\n  {\"id\":\"1\",\"label\":\"⬅ मागे\"}\n]\n:\n[\n  {\"id\":\"0\",\"label\":\"🌐 Open Portal\"},\n  {\"id\":\"1\",\"label\":\"⬅ Back\"}\n]\n}}",
+              "type": "array"
+            },
+            {
+              "id": "7eaa7f4e-11d6-4ea8-9e68-6ab71cbe86b0",
+              "name": "new_state",
+              "value": "ST203",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        1712
+      ],
+      "id": "ee59857d-d05c-4a7c-ae33-4a244907cf62",
+      "name": "ST203 - Aaple Sarkar Portal"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "77809318-94cc-4e71-8c5f-e4741c467461",
+              "name": "current_state",
+              "value": "ST207",
+              "type": "string"
+            },
+            {
+              "id": "4b92cccf-3489-4652-83de-dae48b7772ff",
+              "name": "screen",
+              "value": "zone_login",
+              "type": "string"
+            },
+            {
+              "id": "f5aaa3f9-0ca8-4f98-90ac-cba4dc712b85",
+              "name": "=language",
+              "value": "=$json.language",
+              "type": "string"
+            },
+            {
+              "id": "536fe77a-0895-4b7a-a070-1d2ef62640a0",
+              "name": "=title",
+              "value": "={{ $json.language==\"mr\" ? \"🔐 लॉगिन\" : \"🔐 Login\" }}",
+              "type": "string"
+            },
+            {
+              "id": "ca193049-376e-43da-9b17-4dfd6a883535",
+              "name": "=subtitle",
+              "value": "={{ $json.language==\"mr\"\n? \"CSMRDA पोर्टलवर लॉगिन करा.\"\n: \"Login to the CSMRDA Zone Certificate Portal.\"\n}}",
+              "type": "string"
+            },
+            {
+              "id": "2c5a44c5-be02-4d3c-9e7d-279dc5bc1755",
+              "name": "=buttons",
+              "value": "={{\n$json.language==\"mr\"\n?\n[\n  {\"id\":\"0\",\"label\":\"🌐 Login Page\"},\n  {\"id\":\"1\",\"label\":\"⬅ मागे\"}\n]\n:\n[\n  {\"id\":\"0\",\"label\":\"🌐 Open Login Page\"},\n  {\"id\":\"1\",\"label\":\"⬅ Back\"}\n]\n}}",
+              "type": "array"
+            },
+            {
+              "id": "7eaa7f4e-11d6-4ea8-9e68-6ab71cbe86b0",
+              "name": "new_state",
+              "value": "ST207",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        2064
+      ],
+      "id": "9c9fc2b6-26e3-47c9-9a92-a7916f113af5",
+      "name": "ST207 - Login"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "77809318-94cc-4e71-8c5f-e4741c467461",
+              "name": "current_state",
+              "value": "ST208",
+              "type": "string"
+            },
+            {
+              "id": "4b92cccf-3489-4652-83de-dae48b7772ff",
+              "name": "screen",
+              "value": "track_application",
+              "type": "string"
+            },
+            {
+              "id": "f5aaa3f9-0ca8-4f98-90ac-cba4dc712b85",
+              "name": "=language",
+              "value": "=$json.language",
+              "type": "string"
+            },
+            {
+              "id": "536fe77a-0895-4b7a-a070-1d2ef62640a0",
+              "name": "=title",
+              "value": "={{ $json.language==\"mr\" ? \"📍 अर्जाची स्थिती\" : \"📍 Track Application\" }}",
+              "type": "string"
+            },
+            {
+              "id": "ca193049-376e-43da-9b17-4dfd6a883535",
+              "name": "=subtitle",
+              "value": "={{ $json.language==\"mr\"\n? \"तुमच्या अर्जाची सद्यस्थिती पाहण्यासाठी खाली क्लिक करा.\"\n: \"Click below to track the status of your application.\"\n}}",
+              "type": "string"
+            },
+            {
+              "id": "2c5a44c5-be02-4d3c-9e7d-279dc5bc1755",
+              "name": "=buttons",
+              "value": "={{\n$json.language==\"mr\"\n?\n[\n  {\"id\":\"0\",\"label\":\"🌐 Track Application\"},\n  {\"id\":\"1\",\"label\":\"⬅ मागे\"}\n]\n:\n[\n  {\"id\":\"0\",\"label\":\"🌐 Track Application\"},\n  {\"id\":\"1\",\"label\":\"⬅ Back\"}\n]\n}}",
+              "type": "array"
+            },
+            {
+              "id": "7eaa7f4e-11d6-4ea8-9e68-6ab71cbe86b0",
+              "name": "new_state",
+              "value": "ST208",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        2256
+      ],
+      "id": "25db22ef-c5b9-40de-90ce-f2421f070ae6",
+      "name": "ST208 - Track Application"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2cd991c7-f46e-4b24-9585-aa05c228ebef",
+              "name": "success",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "id": "07f305de-70e3-46a3-ad3c-f1b95d6de6ee",
+              "name": "current_state",
+              "value": "ST301",
+              "type": "string"
+            },
+            {
+              "id": "9185a824-83f5-449a-81e2-ef9be7457a18",
+              "name": "=language",
+              "value": "={{$json.language}}",
+              "type": "string"
+            },
+            {
+              "id": "5783516d-da00-4e20-92a1-fb8e737fff57",
+              "name": "screen",
+              "value": "part_plan",
+              "type": "string"
+            },
+            {
+              "id": "cbae779e-86d7-4bfd-8815-bc6c69ed8b36",
+              "name": "=title",
+              "value": "={{ $json.language==\"mr\" ? \"🗺️पार्ट प्लान अर्ज\" : \"🗺️ Part Plan Application\" }}",
+              "type": "string"
+            },
+            {
+              "id": "c1226566-8729-4ae4-897a-089fa7da102b",
+              "name": "=subtitle",
+              "value": "={{ $json.language==\"mr\"\n? \"कृपया एक पर्याय निवडा:\"\n: \"Please choose an option:\"\n}}",
+              "type": "string"
+            },
+            {
+              "id": "f7c8a5e0-23c5-4d07-9c34-ee0bda1cddc0",
+              "name": "inputType",
+              "value": "buttons",
+              "type": "string"
+            },
+            {
+              "id": "ac18d759-6a2f-46c1-8e5e-1a1724bdfcb5",
+              "name": "=buttons",
+              "value": "={{\n$json.language==\"mr\"\n?\n[\n  {\"id\":\"0\",\"label\":\"📝 अर्ज करा\"},\n  {\"id\":\"1\",\"label\":\"🌐 आपले सरकार पोर्टल\"},\n  {\"id\":\"2\",\"label\":\"⬅ मागे\"}\n]\n:\n[\n  {\"id\":\"0\",\"label\":\"📝 Apply Here\"},\n  {\"id\":\"1\",\"label\":\"🌐 Aaple Sarkar Portal\"},\n  {\"id\":\"2\",\"label\":\"⬅ Back\"}\n]\n}}",
+              "type": "array"
+            },
+            {
+              "id": "24328dce-29bd-4848-84ae-ac25b36a0622",
+              "name": "new_state",
+              "value": "ST301",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        160,
+        1616
+      ],
+      "id": "6361fcbf-cc69-4801-8b91-2491ac094eeb",
+      "name": "ST301 - Part plan"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "77809318-94cc-4e71-8c5f-e4741c467461",
+              "name": "current_state",
+              "value": "ST302",
+              "type": "string"
+            },
+            {
+              "id": "4b92cccf-3489-4652-83de-dae48b7772ff",
+              "name": "screen",
+              "value": "part_plan_apply",
+              "type": "string"
+            },
+            {
+              "id": "f5aaa3f9-0ca8-4f98-90ac-cba4dc712b85",
+              "name": "=language",
+              "value": "=$json.language",
+              "type": "string"
+            },
+            {
+              "id": "536fe77a-0895-4b7a-a070-1d2ef62640a0",
+              "name": "=title",
+              "value": "={{ $json.language==\"mr\" ? \" पार्ट प्लान अर्ज\" : \"📝 Apply for Part Plan Application\" }}",
+              "type": "string"
+            },
+            {
+              "id": "ca193049-376e-43da-9b17-4dfd6a883535",
+              "name": "=subtitle",
+              "value": "={{ $json.language==\"mr\"\n? \"कृपया एक पर्याय निवडा:\"\n: \"Please choose an option:\"\n}}",
+              "type": "string"
+            },
+            {
+              "id": "2c5a44c5-be02-4d3c-9e7d-279dc5bc1755",
+              "name": "=buttons",
+              "value": "={{\n$json.language==\"mr\"\n?\n[\n  {\"id\":\"0\",\"label\":\"🆕 नोंदणी करा\"},\n  {\"id\":\"1\",\"label\":\"🔐 लॉगिन\"},\n  {\"id\":\"2\",\"label\":\"📍 अर्जाची स्थिती\"},\n  {\"id\":\"3\",\"label\":\"⬅ मागे\"}\n]\n:\n[\n  {\"id\":\"0\",\"label\":\"🆕 Register\"},\n  {\"id\":\"1\",\"label\":\"🔐 Login\"},\n  {\"id\":\"2\",\"label\":\"📍 Track Application\"},\n  {\"id\":\"3\",\"label\":\"⬅ Back\"}\n]\n}}",
+              "type": "array"
+            },
+            {
+              "id": "7eaa7f4e-11d6-4ea8-9e68-6ab71cbe86b0",
+              "name": "new_state",
+              "value": "ST302",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        176,
+        1792
+      ],
+      "id": "f708c18b-1bef-4ca7-9914-2d247eb69a94",
+      "name": "ST302 - Apply Here"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "77809318-94cc-4e71-8c5f-e4741c467461",
+              "name": "current_state",
+              "value": "ST303",
+              "type": "string"
+            },
+            {
+              "id": "4b92cccf-3489-4652-83de-dae48b7772ff",
+              "name": "screen",
+              "value": "part_plan_documents",
+              "type": "string"
+            },
+            {
+              "id": "f5aaa3f9-0ca8-4f98-90ac-cba4dc712b85",
+              "name": "=language",
+              "value": "=$json.language",
+              "type": "string"
+            },
+            {
+              "id": "536fe77a-0895-4b7a-a070-1d2ef62640a0",
+              "name": "=title",
+              "value": "={{ $json.language==\"mr\" ? \"🌐 आपले सरकार पोर्टल\" : \"🌐 Aaple Sarkar Portal\" }}",
+              "type": "string"
+            },
+            {
+              "id": "ca193049-376e-43da-9b17-4dfd6a883535",
+              "name": "=subtitle",
+              "value": "={{ $json.language==\"mr\"\n? \"झोन प्रमाणपत्रासाठी अर्ज करण्यासाठी खालील पोर्टल उघडा.\"\n: \"Open the Aaple Sarkar Portal to apply for a Zone Certificate.\"\n}}",
+              "type": "string"
+            },
+            {
+              "id": "2c5a44c5-be02-4d3c-9e7d-279dc5bc1755",
+              "name": "=buttons",
+              "value": "={{\n$json.language==\"mr\"\n?\n[\n  {\"id\":\"0\",\"label\":\"🌐 पोर्टल उघडा\"},\n  {\"id\":\"1\",\"label\":\"⬅ मागे\"}\n]\n:\n[\n  {\"id\":\"0\",\"label\":\"🌐 Open Portal\"},\n  {\"id\":\"1\",\"label\":\"⬅ Back\"}\n]\n}}",
+              "type": "array"
+            },
+            {
+              "id": "7eaa7f4e-11d6-4ea8-9e68-6ab71cbe86b0",
+              "name": "new_state",
+              "value": "ST203",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        176,
+        1968
+      ],
+      "id": "c0af3cd5-87d6-497a-a932-d0de109c9ae4",
+      "name": "ST303 - Aaple Sarkar Portal"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "77809318-94cc-4e71-8c5f-e4741c467461",
+              "name": "current_state",
+              "value": "ST206",
+              "type": "string"
+            },
+            {
+              "id": "4b92cccf-3489-4652-83de-dae48b7772ff",
+              "name": "screen",
+              "value": "zone_register",
+              "type": "string"
+            },
+            {
+              "id": "f5aaa3f9-0ca8-4f98-90ac-cba4dc712b85",
+              "name": "=language",
+              "value": "=$json.language",
+              "type": "string"
+            },
+            {
+              "id": "536fe77a-0895-4b7a-a070-1d2ef62640a0",
+              "name": "=title",
+              "value": "={{ $json.language==\"mr\" ? \"🆕 नोंदणी करा\" : \"🆕 Register\" }}",
+              "type": "string"
+            },
+            {
+              "id": "ca193049-376e-43da-9b17-4dfd6a883535",
+              "name": "=subtitle",
+              "value": "={{ $json.language==\"mr\"\n? \"CSMRDA पोर्टलवर नवीन खाते तयार करा.\"\n: \"Create a new account on the CSMRDA Zone Certificate Portal.\"\n}}",
+              "type": "string"
+            },
+            {
+              "id": "2c5a44c5-be02-4d3c-9e7d-279dc5bc1755",
+              "name": "=buttons",
+              "value": "={{\n$json.language==\"mr\"\n?\n[\n  {\"id\":\"0\",\"label\":\"🌐 Registration Page\"},\n  {\"id\":\"1\",\"label\":\"⬅ मागे\"}\n]\n:\n[\n  {\"id\":\"0\",\"label\":\"🌐 Open Registration Page\"},\n  {\"id\":\"1\",\"label\":\"⬅ Back\"}\n]\n}}",
+              "type": "array"
+            },
+            {
+              "id": "7eaa7f4e-11d6-4ea8-9e68-6ab71cbe86b0",
+              "name": "new_state",
+              "value": "ST206",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        0,
+        1888
+      ],
+      "id": "28404dc7-35c5-45f0-b49b-121807d5395a",
+      "name": "ST206 - Register"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "77809318-94cc-4e71-8c5f-e4741c467461",
+              "name": "current_state",
+              "value": "ST206",
+              "type": "string"
+            },
+            {
+              "id": "4b92cccf-3489-4652-83de-dae48b7772ff",
+              "name": "screen",
+              "value": "zone_register",
+              "type": "string"
+            },
+            {
+              "id": "f5aaa3f9-0ca8-4f98-90ac-cba4dc712b85",
+              "name": "=language",
+              "value": "=$json.language",
+              "type": "string"
+            },
+            {
+              "id": "536fe77a-0895-4b7a-a070-1d2ef62640a0",
+              "name": "=title",
+              "value": "={{ $json.language==\"mr\" ? \"🆕 नोंदणी करा\" : \"🆕 Register\" }}",
+              "type": "string"
+            },
+            {
+              "id": "ca193049-376e-43da-9b17-4dfd6a883535",
+              "name": "=subtitle",
+              "value": "={{ $json.language==\"mr\"\n? \"CSMRDA पोर्टलवर नवीन खाते तयार करा.\"\n: \"Create a new account on the CSMRDA Zone Certificate Portal.\"\n}}",
+              "type": "string"
+            },
+            {
+              "id": "2c5a44c5-be02-4d3c-9e7d-279dc5bc1755",
+              "name": "=buttons",
+              "value": "={{\n$json.language==\"mr\"\n?\n[\n  {\"id\":\"0\",\"label\":\"🌐 Registration Page\"},\n  {\"id\":\"1\",\"label\":\"⬅ मागे\"}\n]\n:\n[\n  {\"id\":\"0\",\"label\":\"🌐 Open Registration Page\"},\n  {\"id\":\"1\",\"label\":\"⬅ Back\"}\n]\n}}",
+              "type": "array"
+            },
+            {
+              "id": "7eaa7f4e-11d6-4ea8-9e68-6ab71cbe86b0",
+              "name": "new_state",
+              "value": "ST206",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        176,
+        2160
+      ],
+      "id": "36cc4b21-b87e-4576-8e86-aaacdd47e1b6",
+      "name": "ST306 - Register"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "77809318-94cc-4e71-8c5f-e4741c467461",
+              "name": "current_state",
+              "value": "ST207",
+              "type": "string"
+            },
+            {
+              "id": "4b92cccf-3489-4652-83de-dae48b7772ff",
+              "name": "screen",
+              "value": "zone_login",
+              "type": "string"
+            },
+            {
+              "id": "f5aaa3f9-0ca8-4f98-90ac-cba4dc712b85",
+              "name": "=language",
+              "value": "=$json.language",
+              "type": "string"
+            },
+            {
+              "id": "536fe77a-0895-4b7a-a070-1d2ef62640a0",
+              "name": "=title",
+              "value": "={{ $json.language==\"mr\" ? \"🔐 लॉगिन\" : \"🔐 Login\" }}",
+              "type": "string"
+            },
+            {
+              "id": "ca193049-376e-43da-9b17-4dfd6a883535",
+              "name": "=subtitle",
+              "value": "={{ $json.language==\"mr\"\n? \"CSMRDA पोर्टलवर लॉगिन करा.\"\n: \"Login to the CSMRDA Zone Certificate Portal.\"\n}}",
+              "type": "string"
+            },
+            {
+              "id": "2c5a44c5-be02-4d3c-9e7d-279dc5bc1755",
+              "name": "=buttons",
+              "value": "={{\n$json.language==\"mr\"\n?\n[\n  {\"id\":\"0\",\"label\":\"🌐 Login Page\"},\n  {\"id\":\"1\",\"label\":\"⬅ मागे\"}\n]\n:\n[\n  {\"id\":\"0\",\"label\":\"🌐 Open Login Page\"},\n  {\"id\":\"1\",\"label\":\"⬅ Back\"}\n]\n}}",
+              "type": "array"
+            },
+            {
+              "id": "7eaa7f4e-11d6-4ea8-9e68-6ab71cbe86b0",
+              "name": "new_state",
+              "value": "ST207",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        176,
+        2352
+      ],
+      "id": "70973570-71a8-44f9-b431-09cb012d14db",
+      "name": "ST307 - Login"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "77809318-94cc-4e71-8c5f-e4741c467461",
+              "name": "current_state",
+              "value": "ST208",
+              "type": "string"
+            },
+            {
+              "id": "4b92cccf-3489-4652-83de-dae48b7772ff",
+              "name": "screen",
+              "value": "track_application",
+              "type": "string"
+            },
+            {
+              "id": "f5aaa3f9-0ca8-4f98-90ac-cba4dc712b85",
+              "name": "=language",
+              "value": "=$json.language",
+              "type": "string"
+            },
+            {
+              "id": "536fe77a-0895-4b7a-a070-1d2ef62640a0",
+              "name": "=title",
+              "value": "={{ $json.language==\"mr\" ? \"📍 अर्जाची स्थिती\" : \"📍 Track Application\" }}",
+              "type": "string"
+            },
+            {
+              "id": "ca193049-376e-43da-9b17-4dfd6a883535",
+              "name": "=subtitle",
+              "value": "={{ $json.language==\"mr\"\n? \"तुमच्या अर्जाची सद्यस्थिती पाहण्यासाठी खाली क्लिक करा.\"\n: \"Click below to track the status of your application.\"\n}}",
+              "type": "string"
+            },
+            {
+              "id": "2c5a44c5-be02-4d3c-9e7d-279dc5bc1755",
+              "name": "=buttons",
+              "value": "={{\n$json.language==\"mr\"\n?\n[\n  {\"id\":\"0\",\"label\":\"🌐 Track Application\"},\n  {\"id\":\"1\",\"label\":\"⬅ मागे\"}\n]\n:\n[\n  {\"id\":\"0\",\"label\":\"🌐 Track Application\"},\n  {\"id\":\"1\",\"label\":\"⬅ Back\"}\n]\n}}",
+              "type": "array"
+            },
+            {
+              "id": "7eaa7f4e-11d6-4ea8-9e68-6ab71cbe86b0",
+              "name": "new_state",
+              "value": "ST208",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        176,
+        2544
+      ],
+      "id": "f7c5fd43-5c54-4695-926e-cc6a96caab46",
+      "name": "ST308 - Track Application"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "77809318-94cc-4e71-8c5f-e4741c467461",
+              "name": "current_state",
+              "value": "ST401",
+              "type": "string"
+            },
+            {
+              "id": "4b92cccf-3489-4652-83de-dae48b7772ff",
+              "name": "screen",
+              "value": "gunthevari",
+              "type": "string"
+            },
+            {
+              "id": "f5aaa3f9-0ca8-4f98-90ac-cba4dc712b85",
+              "name": "=language",
+              "value": "=$json.language",
+              "type": "string"
+            },
+            {
+              "id": "536fe77a-0895-4b7a-a070-1d2ef62640a0",
+              "name": "=title",
+              "value": "={{ $json.language==\"mr\" ? \"🏡 गुंठेवारी सेवा\" : \"🏡 Gunthewari Service\" }}",
+              "type": "string"
+            },
+            {
+              "id": "ca193049-376e-43da-9b17-4dfd6a883535",
+              "name": "=subtitle",
+              "value": "={{ $json.language==\"mr\"\n? \"कृपया खालील पर्याय निवडा.\"\n: \"Please choose an option.\"\n}}",
+              "type": "string"
+            },
+            {
+              "id": "2c5a44c5-be02-4d3c-9e7d-279dc5bc1755",
+              "name": "=buttons",
+              "value": "=[\n  {\n    \"id\":\"0\",\n    \"label\":\"🌐 Open Gunthewari Portal\"\n  },\n  {\n    \"id\":\"1\",\n    \"label\":\"⬅️ Back\"\n  }\n]",
+              "type": "array"
+            },
+            {
+              "id": "7eaa7f4e-11d6-4ea8-9e68-6ab71cbe86b0",
+              "name": "new_state",
+              "value": "ST401",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        784,
+        2208
+      ],
+      "id": "08002d43-7bdb-425b-bf26-cff186e3350e",
+      "name": "ST401 - Gunthewari"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "77809318-94cc-4e71-8c5f-e4741c467461",
+              "name": "current_state",
+              "value": "ST402",
+              "type": "string"
+            },
+            {
+              "id": "4b92cccf-3489-4652-83de-dae48b7772ff",
+              "name": "screen",
+              "value": "gunthewari_portal",
+              "type": "string"
+            },
+            {
+              "id": "f5aaa3f9-0ca8-4f98-90ac-cba4dc712b85",
+              "name": "=language",
+              "value": "=$json.language",
+              "type": "string"
+            },
+            {
+              "id": "536fe77a-0895-4b7a-a070-1d2ef62640a0",
+              "name": "=title",
+              "value": "={{ $json.language==\"mr\"\n? \"🌐 गुंठेवारी पोर्टल\"\n: \"🌐 Gunthewari Portal\"\n}}",
+              "type": "string"
+            },
+            {
+              "id": "ca193049-376e-43da-9b17-4dfd6a883535",
+              "name": "=subtitle",
+              "value": "={{ $json.language==\"mr\"\n? \"गुंठेवारी अर्जासाठी खालील लिंक उघडा.\"\n: \"Open the Gunthewari Portal using the button below.\"\n}}",
+              "type": "string"
+            },
+            {
+              "id": "2c5a44c5-be02-4d3c-9e7d-279dc5bc1755",
+              "name": "=buttons",
+              "value": "=[\n  {\n    \"id\":\"0\",\n    \"label\":\"🚀 Open Portal\"\n  },\n  {\n    \"id\":\"1\",\n    \"label\":\"⬅️ Back\"\n  }\n]",
+              "type": "array"
+            },
+            {
+              "id": "7eaa7f4e-11d6-4ea8-9e68-6ab71cbe86b0",
+              "name": "new_state",
+              "value": "ST402",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        800,
+        2416
+      ],
+      "id": "a97a4858-0cc2-4525-97f8-04a47c7321ef",
+      "name": "ST402 - Open Portal"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "77809318-94cc-4e71-8c5f-e4741c467461",
+              "name": "current_state",
+              "value": "ST4501",
+              "type": "string"
+            },
+            {
+              "id": "4b92cccf-3489-4652-83de-dae48b7772ff",
+              "name": "screen",
+              "value": "ai_assistant",
+              "type": "string"
+            },
+            {
+              "id": "f5aaa3f9-0ca8-4f98-90ac-cba4dc712b85",
+              "name": "=language",
+              "value": "=$json.language",
+              "type": "string"
+            },
+            {
+              "id": "536fe77a-0895-4b7a-a070-1d2ef62640a0",
+              "name": "=title",
+              "value": "={{ $json.language==\"mr\"\n? \"🤖 AI सहाय्यक\"\n: \"🤖 AI Assistant\"\n}}",
+              "type": "string"
+            },
+            {
+              "id": "ca193049-376e-43da-9b17-4dfd6a883535",
+              "name": "=subtitle",
+              "value": "={{ $json.language==\"mr\"\n? \"तुमचा कोणताही प्रश्न विचारा. मुख्य मेनूसाठी 'back' टाइप करा.\"\n: \"Ask me anything about CSMRDA. Type 'back' anytime to return to the Main Menu.\"\n}}",
+              "type": "string"
+            },
+            {
+              "id": "2c5a44c5-be02-4d3c-9e7d-279dc5bc1755",
+              "name": "=inputType",
+              "value": "=",
+              "type": "string"
+            },
+            {
+              "id": "7eaa7f4e-11d6-4ea8-9e68-6ab71cbe86b0",
+              "name": "new_state",
+              "value": "ST501",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        464,
+        2672
+      ],
+      "id": "e035a850-315d-4390-a37b-5163f308820a",
+      "name": "ST501 - AI"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "ST002 - Language Selected": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ST001 - Welcome Screen": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ST101 - Building Menu": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ST102 - Layout Documents": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ST103 - Building Permission Documents": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ST104 - Occupancy Certificate": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ST105 - Open BPMS Portal": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "get_sessions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get_sessions": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "state router",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "state router": {
+      "main": [
+        [
+          {
+            "node": "ST001 - Welcome Screen",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ST002 - Language Selected",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ST101 - Building Menu",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ST102 - Layout Documents",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ST103 - Building Permission Documents",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ST104 - Occupancy Certificate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ST105 - Open BPMS Portal",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ST201 - Zone Certificate",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ST202 - Apply Here",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ST203 - Aaple Sarkar Portal",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ST206 - Register",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ST207 - Login",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ST208 - Track Application",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ST301 - Part plan",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ST302 - Apply Here",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ST303 - Aaple Sarkar Portal",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ST306 - Register",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ST307 - Login",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ST308 - Track Application",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ST401 - Gunthewari",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ST402 - Open Portal",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ST501 - AI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ST201 - Zone Certificate": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ST202 - Apply Here": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ST203 - Aaple Sarkar Portal": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ST207 - Login": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ST208 - Track Application": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ST301 - Part plan": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ST302 - Apply Here": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ST303 - Aaple Sarkar Portal": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ST206 - Register": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ST306 - Register": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ST307 - Login": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ST308 - Track Application": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ST401 - Gunthewari": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ST402 - Open Portal": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ST501 - AI": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "save_sessions": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "1c7779b1-f167-4fe5-bda3-a74c4bbaf018",
+  "meta": {
+    "instanceId": "1de1961f171abb5f8ef1f0523a76130b1911dc7224eb82a81bccb9ab9a754309"
+  },
+  "nodeGroups": [],
+  "id": "uKvYTLXTmUVkcXqw",
+  "tags": []
+}
